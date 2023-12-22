@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perhitungan Persamaan Kuadrat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo"> <img src="undira.jpg" alt=""> 
+            <h1>UNIVERSITAS DIAN NUSANTARA</h1></div>
+        <div class="container">
+            <a href="index.html"><p class="margin-kanan">Beranda</p></a>
+            <a href="tentang.html"><p class="margin-kanan">Profile</p></a>
+            <a href="./kalkulator.html"><p class="margin-kanan">kalkulator</p></a>
+            <a href="./contac.html"><p class="margin-kanan">Kontak</p></a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Perhitungan Persamaan Kuadrat</h2>
+        <p>Masukkan rumus persamaan kuadrat:</p>
+        <table>
+            <tr>
+                <input type="text" id="a" placeholder="Koefisien a" style="color: black;">
+                <input type="text" id="b" placeholder="Koefisien b" style="color: black;">
+                <input type="text" id="c" placeholder="Koefisien c" style="color: black;">
+            </tr>
+        </table>
+        
+        <button onclick="hitungKuadrat()">Hitung</button>
+        <p>Hasil: <span id="hasilKuadrat"></span></p>
+    </section>
+    
+    <footer>
+        <p>Copyrigt Rizqi Arif Budiman</p>
+    </footer>
+
+    <script>
+        function hitungKuadrat() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var c = parseFloat(document.getElementById("c").value);
+            var discriminant = b * b - 4 * a * c;
+            var x1, x2;
+
+            if (discriminant > 0) {
+                x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                document.getElementById("hasilKuadrat").textContent = "x1 = " + x1 + ", x2 = " + x2;
+            } else if (discriminant === 0) {
+                x1 = -b / (2 * a);
+                document.getElementById("hasilKuadrat").textContent = "x1 = x2 = " + x1;
+            } else {
+                document.getElementById("hasilKuadrat").textContent = "Tidak ada akar real.";
+            }
+        }
+
+
+    </script>
+</body>
+</html>
